@@ -2,6 +2,7 @@ class OverlapManager {
     private gameManager: GameManager;
 
     constructor(gameManager: GameManager) {
+        this.gameManager = gameManager;
         this.initialiseEvents();
     }
 

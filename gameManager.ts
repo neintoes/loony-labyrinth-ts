@@ -10,7 +10,6 @@ class GameManager {
     public mazeManager: MazeManager;
 
     constructor() {
-        this.mazeManager = new MazeManager();
         this.overlapManager = new OverlapManager(this);
         this.initialisePlayer();
         this.newLevel();
@@ -30,6 +29,7 @@ class GameManager {
     // end GH1
 
     public newLevel(): void {
+        this.mazeManager = new MazeManager();
         this.mazeManager.generateMaze();
         // GH1
         this.spawnTraps();
