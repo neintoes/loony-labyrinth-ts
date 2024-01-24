@@ -3,7 +3,6 @@ class Trap extends sprites.ExtendableSprite {
         super(image.create(16, 16), SpriteKind.Trap);
         scene.placeOnRandomTile(this, mazes.DEFAULT_COLOR_MAP_PATH);
         this.setOrientation();
-
     }
 
     private setOrientation(): void {
