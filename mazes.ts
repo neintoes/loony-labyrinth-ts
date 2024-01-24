@@ -18,18 +18,20 @@ class MazeManager {
     private maze: mazes.Grid;
     public startTile: tiles.Tile;
     private tileSets: { [key: string]: TileSet } = {};
+    public currentTileSet: TileSet;
 
     constructor() {
         this.initialiseTileSets();
         this.maze = mazes.buildMaze(this.gridSize, this.gridSize, MazeType.AldousBroder);
+        this.currentTileSet = this.tileSets["standard"];
     }
 
     private initialiseTileSets(): void {
         this.tileSets["standard"] = new TileSet(
-            assets.tile("portal"),
-            assets.tile("door"),
-            assets.tile("wall"),
-            assets.tile("floor")
+            assets.tile`portal`,
+            assets.tile`door`,
+            assets.tile`wall`,
+            assets.tile`floor`
         );
         // additional tilesets added here
     }
@@ -39,12 +41,12 @@ class MazeManager {
         let startRow = randint(1, this.gridSize - 1);
         let endCol = randint(1, this.gridSize - 1);
         let endRow = randint(1, this.gridSize- 1);
-        this.setTileTypes(tileSet);
+        this.setTileTypes(this.currentTileSet);
         this.maze.setSolutionCells(startRow, startCol, endRow, endCol);
         this.maze.solve();
         scene.setTileMap(this.maze.buildTileMapBlocks(this.pathWidth))
         if (this.startNearEnd()) {
-            this.generateMaze(tileSet);
+            this.generateMaze();
         }
         this.startTile = scene.getTilesByType(mazes.DEFAULT_COLOR_MAP_BEGIN)[0]
     }

@@ -14,7 +14,12 @@
         "gameManager.ts",
         "mazes.ts",
         "playerSprite.ts",
-        "overlapManager.ts"
+        "overlapManager.ts",
+        "images.g.jres",
+        "images.g.ts",
+        "tilemap.g.jres",
+        "tilemap.g.ts",
+        "traps.ts"
     ],
     "testFiles": [
         "test.ts"

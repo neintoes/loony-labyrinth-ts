@@ -1,10 +1,11 @@
 class GameManager {
     private playerSprite: PlayerSprite;
-    private mazeManager: MazeManager;
+    public mazeManager: MazeManager;
     private overlapManager: OverlapManager;
 
     constructor() {
         this.mazeManager = new MazeManager();
+        this.overlapManager = new OverlapManager(this);
         this.initialisePlayer();
         this.newLevel();
     }
@@ -12,12 +13,10 @@ class GameManager {
     private initialisePlayer(): void {
         this.playerSprite = new PlayerSprite();
         scene.cameraFollowSprite(this.playerSprite)
-        controller.moveSprite(this.playerSprite)
     }
 
     private newLevel(): void {
         this.mazeManager.generateMaze();
-        // start_tile = scene.get_tiles_by_type(mazes.DEFAULT_COLOR_MAP_BEGIN)[0]
-        // scene.place(start_tile, dino)
+        scene.place(this.mazeManager.startTile, this.playerSprite);
     }
 }
