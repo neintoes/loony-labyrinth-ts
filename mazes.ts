@@ -16,8 +16,8 @@ class MazeManager {
     readonly gridSize: number = 16;
     readonly pathWidth: number = 1;
     private maze: mazes.Grid;
-    public startTile: tiles.Tile;
     private tileSets: { [key: string]: TileSet } = {};
+    public startTile: tiles.Tile;
     public currentTileSet: TileSet;
 
     constructor() {
