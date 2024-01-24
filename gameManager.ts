@@ -6,8 +6,8 @@ namespace SpriteKind {
 
 class GameManager {
     private playerSprite: PlayerSprite;
-    public mazeManager: MazeManager;
     private overlapManager: OverlapManager;
+    public mazeManager: MazeManager;
 
     constructor() {
         this.mazeManager = new MazeManager();
