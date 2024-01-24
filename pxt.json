@@ -4,7 +4,8 @@
     "dependencies": {
         "device": "*",
         "pxt-arcade-mazes": "github:robo-technical-group/pxt-arcade-mazes#v2.2.1",
-        "arcade-sprite-util": "github:jwunderl/arcade-sprite-util#v0.4.1"
+        "arcade-sprite-util": "github:jwunderl/arcade-sprite-util#v0.4.1",
+        "Tiles Advanced": "github:Tomhausen/The-Code-Zone-Tiles-Advanced#v0.4.3"
     },
     "files": [
         "main.blocks",

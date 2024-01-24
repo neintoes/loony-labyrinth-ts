@@ -7,7 +7,13 @@ class OverlapManager {
 
     private initialiseEvents(): void {
         scene.onOverlapTile(SpriteKind.Player, assets.tile`door`, (playerSprite: PlayerSprite) => {
-            this.gameManager.mazeManager.generateMaze();
+            this.gameManager.newLevel();
         });
+
+        // GH1
+        sprites.onOverlap(SpriteKind.Player, SpriteKind.Trap, (playerSprite: PlayerSprite, trap: Trap) => {
+            game.over(false);
+        })
+        // end GH1
     }
 }
