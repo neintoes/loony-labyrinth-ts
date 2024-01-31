@@ -1,6 +1,14 @@
+namespace userconfig {
+    export const ARCADE_SCREEN_WIDTH = 540
+    export const ARCADE_SCREEN_HEIGHT = 403
+}
+
 // GH1
 namespace SpriteKind {
     export const Trap = SpriteKind.create();
+    // GH2
+    export const Key = SpriteKind.create();
+    // end GH2
 }
 // end GH1
 
@@ -22,18 +30,28 @@ class GameManager {
 
     // GH1
     private spawnTraps(): void {
-        for (let i = 0; i < 32; i++){
+        for (let i = 0; i < 32; i++) {
             new Trap();
+        }
+    }
+
+    private clearTraps(): void {
+        for (let trap of sprites.allOfKind(SpriteKind.Trap)) {
+            trap.destroy();
         }
     }
     // end GH1
 
     public newLevel(): void {
+        //GH1
+        this.clearTraps();
+        // end GH1
         this.mazeManager = new MazeManager();
         this.mazeManager.generateMaze();
         // GH1
         this.spawnTraps();
         // end GH1
         scene.place(this.mazeManager.startTile, this.playerSprite);
+        new Key();
     }
 }
