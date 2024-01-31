@@ -1,8 +1,3 @@
-namespace userconfig {
-    export const ARCADE_SCREEN_WIDTH = 540
-    export const ARCADE_SCREEN_HEIGHT = 403
-}
-
 // GH1
 namespace SpriteKind {
     export const Trap = SpriteKind.create();
