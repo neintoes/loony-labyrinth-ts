@@ -6,7 +6,6 @@ class PlayerSprite extends sprites.ExtendableSprite {
     constructor() {
         super(assets.image`dino`, SpriteKind.Player)
         this.registerControls();
-        this.setFlag(SpriteFlag.GhostThroughWalls, true);
     }
 
     private registerControls() {
